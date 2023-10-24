@@ -1,3 +1,4 @@
+import 'package:airflow/views/screens/Login_Screen.dart';
 import 'package:flutter/material.dart';
 import 'package:airflow/views/screens/home_page.dart';
 
@@ -15,13 +16,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
-        
       ),
       debugShowCheckedModeBanner: false,
       routes: {
-        '/' :(context) => const MyHomePage(title: 'Flutter Home Page')
+        '/': (context) => const LoginScreen(),
       },
     );
   }
 }
-
