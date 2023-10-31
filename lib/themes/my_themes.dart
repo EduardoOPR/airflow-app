@@ -28,4 +28,13 @@ class MyThemes {
       color: textColor,
     );
   }
+
+  static TextStyle inter700(
+      {Color textColor = Colors.white, required double fontSize}) {
+    return GoogleFonts.inter(
+      fontSize: fontSize,
+      fontWeight: FontWeight.w700,
+      color: textColor,
+    );
+  }
 }
