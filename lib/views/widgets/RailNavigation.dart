@@ -105,7 +105,7 @@ class _RailNavigationState extends State<RailNavigation> {
         ),
         NavigationRailDestination(
             padding:
-                EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.35),
+                EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.45),
             icon: Icon(
               Icons.abc,
               color: Colors.white.withOpacity(0),
@@ -113,30 +113,6 @@ class _RailNavigationState extends State<RailNavigation> {
             indicatorColor: Colors.transparent,
             disabled: true,
             label: Text("")),
-        NavigationRailDestination(
-          icon: Container(
-              width: 32,
-              height: 32,
-              decoration: BoxDecoration(
-                  color: Color(0xFFFAF8F8),
-                  borderRadius: BorderRadius.circular(10)),
-              child: const Icon(
-                Icons.settings_outlined,
-                size: 20,
-              )),
-          selectedIcon: Container(
-              width: 32,
-              height: 32,
-              decoration: BoxDecoration(
-                  color: Color(0xFFDAF7F1),
-                  borderRadius: BorderRadius.circular(10)),
-              child: const Icon(
-                Icons.settings_outlined,
-                size: 20,
-                color: Colors.black,
-              )),
-          label: Text(""),
-        ),
         NavigationRailDestination(
           icon: Container(
               width: 32,

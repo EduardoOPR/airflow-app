@@ -3,6 +3,7 @@ import 'dart:ffi';
 import 'package:airflow/themes/my_themes.dart';
 import 'package:flutter/material.dart';
 import 'package:airflow/views/widgets/RailNavigation.dart';
+import 'package:airflow/views/widgets/TemperatureButton.dart';
 
 class DashBoard_Screen extends StatefulWidget {
   const DashBoard_Screen({super.key});
@@ -14,6 +15,7 @@ class DashBoard_Screen extends StatefulWidget {
 class _DashBoard_ScreenState extends State<DashBoard_Screen> {
   final int _selectedIndex = 0;
   bool isSwitched = true;
+  final int counter = 20;
 
   @override
   Widget build(BuildContext context) {
@@ -162,23 +164,34 @@ class _DashBoard_ScreenState extends State<DashBoard_Screen> {
                           height: MediaQuery.of(context).size.height * 0.07,
                         ),
                         Container(
+                          padding: EdgeInsets.symmetric(horizontal: 25),
                           height: MediaQuery.of(context).size.height * 0.4206,
                           width: MediaQuery.of(context).size.width * 0.6795,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(16),
                               color: Colors.white),
                           child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(
+                              const Icon(
                                 Icons.ac_unit_sharp,
                                 size: 116,
                               ),
+                              SizedBox(
+                                height: 30,
+                              ),
                               Row(
                                 children: [
-                                  Text(
-                                    'Ar condicionado 1',
-                                    style: MyThemes.inter700(
-                                        fontSize: 20, textColor: Colors.black),
+                                  SizedBox(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.41,
+                                    child: Text(
+                                      'Ar condicionado 1',
+                                      style: MyThemes.inter700(
+                                          fontSize: 20,
+                                          textColor: Colors.black),
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
                                   ),
                                   IconButton(
                                       onPressed: () {},
@@ -186,13 +199,16 @@ class _DashBoard_ScreenState extends State<DashBoard_Screen> {
                                 ],
                               ),
                               Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'Desligado/Ligado',
+                                    'Desligado/\nLigado',
                                     style: MyThemes.inter500(
                                         fontSize: 16, textColor: Colors.black),
                                   ),
                                   Switch(
+                                    activeColor: Color(0xFF09CCA3),
                                     value: isSwitched,
                                     onChanged: (value) {
                                       setState(() {
@@ -202,12 +218,31 @@ class _DashBoard_ScreenState extends State<DashBoard_Screen> {
                                   ),
                                 ],
                               ),
+                              SizedBox(
+                                height: 10,
+                              ),
                               Row(
-                                children: [],
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Temperatura',
+                                    style: MyThemes.inter500(
+                                      fontSize: 15,
+                                      textColor: Colors.black,
+                                    ),
+                                  ),
+                                  TemperatureButton(
+                                    temperatureCounter: counter,
+                                  ),
+                                ],
                               ),
                             ],
                           ),
                         ),
+                        SizedBox(
+                          height: 30,
+                        )
                       ],
                     ),
                   ),
