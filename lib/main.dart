@@ -1,9 +1,11 @@
 import 'package:airflow/views/screens/Login_Screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:airflow/views/screens/DashBoard_Screen.dart';
 import 'package:airflow/views/screens/home_page.dart';
 
 void main() {
+  //await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlataform,);
   runApp(const MyApp());
 }
 
@@ -20,8 +22,8 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       routes: {
-        //'/': (context) => const LoginScreen(),
-        '/': (context) => const DashBoard_Screen(),
+        '/': (context) => const LoginScreen(),
+        //'/': (context) => const DashBoard_Screen(),
       },
     );
   }
