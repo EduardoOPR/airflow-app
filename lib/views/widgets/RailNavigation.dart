@@ -3,9 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class RailNavigation extends StatefulWidget {
-  const RailNavigation({super.key, required this.selectedIndex});
+  const RailNavigation(
+      {super.key,
+      required this.selectedIndex,
+      required this.panelKey,
+      required this.performanceKey,
+      required this.ventilationKeY,
+      required this.scrollController});
 
   final int selectedIndex;
+  final GlobalKey panelKey;
+  final GlobalKey performanceKey;
+  final GlobalKey ventilationKeY;
+  final ScrollController scrollController;
 
   @override
   State<RailNavigation> createState() => _RailNavigationState();
@@ -31,9 +41,40 @@ class _RailNavigationState extends State<RailNavigation> {
         setState(() {
           _selectedIndex = index;
         });
-        if (index == 3) {
-          //GoogleSignIn().signOut();
-          //FirebaseAuth.instance.signOut();
+        switch (index) {
+          case 0:
+            setState(() {
+              widget.scrollController.position.ensureVisible(
+                widget.panelKey.currentContext!.findRenderObject()!,
+                alignment: 0.05,
+                duration: const Duration(seconds: 1),
+              );
+            });
+
+            break;
+          case 1:
+            setState(() {
+              widget.scrollController.position.ensureVisible(
+                widget.performanceKey.currentContext!.findRenderObject()!,
+                alignment: 0.05,
+                duration: const Duration(seconds: 1),
+              );
+            });
+            break;
+          case 2:
+            setState(() {
+              widget.scrollController.position.ensureVisible(
+                widget.ventilationKeY.currentContext!.findRenderObject()!,
+                alignment: 0.05,
+                duration: const Duration(seconds: 1),
+              );
+            });
+            break;
+          case 3:
+            //GoogleSignIn().signOut();
+            //FirebaseAuth.instance.signOut();
+            break;
+          default:
         }
       },
       destinations: [

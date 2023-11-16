@@ -1,3 +1,5 @@
+//http://167.172.130.199/dashboard/wind
+
 import 'dart:ffi';
 
 import 'package:airflow/themes/my_themes.dart';
@@ -15,6 +17,10 @@ class DashBoard_Screen extends StatefulWidget {
 
 class _DashBoard_ScreenState extends State<DashBoard_Screen> {
   final int _selectedIndex = 0;
+  final panelKey = GlobalKey();
+  final performanceKey = GlobalKey();
+  final ventilationKey = GlobalKey();
+  final scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -66,11 +72,18 @@ class _DashBoard_ScreenState extends State<DashBoard_Screen> {
                       highlightColor: Colors.transparent,
                       splashFactory: NoSplash.splashFactory,
                     ),
-                    child: RailNavigation(selectedIndex: _selectedIndex)),
+                    child: RailNavigation(
+                      selectedIndex: _selectedIndex,
+                      panelKey: panelKey,
+                      performanceKey: performanceKey,
+                      ventilationKeY: ventilationKey,
+                      scrollController: scrollController,
+                    )),
                 Padding(
                   padding: const EdgeInsets.only(left: 29),
                   //padding: EdgeInsets.all(0),
                   child: SingleChildScrollView(
+                    controller: scrollController,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -84,6 +97,7 @@ class _DashBoard_ScreenState extends State<DashBoard_Screen> {
                           children: [
                             Text(
                               'Painel',
+                              key: panelKey,
                               style: MyThemes.inter700(
                                   fontSize: 32, textColor: Colors.black),
                             ),
@@ -113,6 +127,7 @@ class _DashBoard_ScreenState extends State<DashBoard_Screen> {
                           children: [
                             Text(
                               'Performance',
+                              key: performanceKey,
                               style: MyThemes.inter700(
                                   fontSize: 24, textColor: Colors.black),
                             ),
@@ -139,6 +154,7 @@ class _DashBoard_ScreenState extends State<DashBoard_Screen> {
                           children: [
                             Text(
                               'Ventilação',
+                              key: ventilationKey,
                               style: MyThemes.inter700(
                                   fontSize: 24, textColor: Colors.black),
                             ),
@@ -167,6 +183,9 @@ class _DashBoard_ScreenState extends State<DashBoard_Screen> {
                           height: 30,
                         ),
                         AirCard(isOn: false, tempCount: 20, AirName: 'Ar 2'),
+                        SizedBox(
+                          height: 30,
+                        ),
                       ],
                     ),
                   ),

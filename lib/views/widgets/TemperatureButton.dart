@@ -26,11 +26,13 @@ class _TemperatureButtonState extends State<TemperatureButton> {
       children: [
         GestureDetector(
           onTap: () => setState(() {
-            _temperatureCounter--;
+            _temperatureCounter = _temperatureCounter < 19
+                ? _temperatureCounter
+                : _temperatureCounter - 1;
           }),
           child: Container(
             height: 25,
-            width: 23,
+            width: 24,
             decoration: BoxDecoration(
               border: Border.all(color: Color(0xFFFAF8F8)),
               color: const Color(0xFFF1ECEC),
@@ -58,7 +60,7 @@ class _TemperatureButtonState extends State<TemperatureButton> {
         ),
         Container(
           height: 25,
-          width: 23,
+          width: 24,
           decoration: BoxDecoration(
             border: Border.all(color: const Color(0xFFFAF8F8)),
             borderRadius: const BorderRadius.only(
@@ -76,7 +78,9 @@ class _TemperatureButtonState extends State<TemperatureButton> {
         ),
         GestureDetector(
           onTap: () => setState(() {
-            _temperatureCounter++;
+            _temperatureCounter = _temperatureCounter > 29
+                ? _temperatureCounter
+                : _temperatureCounter + 1;
           }),
           child: Container(
             height: 25,
