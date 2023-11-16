@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:airflow/themes/my_themes.dart';
+import 'package:airflow/views/widgets/AirCard.dart';
 import 'package:flutter/material.dart';
 import 'package:airflow/views/widgets/RailNavigation.dart';
 import 'package:airflow/views/widgets/TemperatureButton.dart';
@@ -14,8 +15,6 @@ class DashBoard_Screen extends StatefulWidget {
 
 class _DashBoard_ScreenState extends State<DashBoard_Screen> {
   final int _selectedIndex = 0;
-  bool isSwitched = true;
-  final int counter = 20;
 
   @override
   Widget build(BuildContext context) {
@@ -163,86 +162,11 @@ class _DashBoard_ScreenState extends State<DashBoard_Screen> {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.07,
                         ),
-                        Container(
-                          padding: EdgeInsets.symmetric(horizontal: 25),
-                          height: MediaQuery.of(context).size.height * 0.4206,
-                          width: MediaQuery.of(context).size.width * 0.6795,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16),
-                              color: Colors.white),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Icon(
-                                Icons.ac_unit_sharp,
-                                size: 116,
-                              ),
-                              SizedBox(
-                                height: 30,
-                              ),
-                              Row(
-                                children: [
-                                  SizedBox(
-                                    width: MediaQuery.of(context).size.width *
-                                        0.41,
-                                    child: Text(
-                                      'Ar condicionado 1',
-                                      style: MyThemes.inter700(
-                                          fontSize: 20,
-                                          textColor: Colors.black),
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                  ),
-                                  IconButton(
-                                      onPressed: () {},
-                                      icon: Icon(Icons.border_color_outlined))
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Desligado/\nLigado',
-                                    style: MyThemes.inter500(
-                                        fontSize: 16, textColor: Colors.black),
-                                  ),
-                                  Switch(
-                                    activeColor: Color(0xFF09CCA3),
-                                    value: isSwitched,
-                                    onChanged: (value) {
-                                      setState(() {
-                                        isSwitched = value;
-                                      });
-                                    },
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Temperatura',
-                                    style: MyThemes.inter500(
-                                      fontSize: 15,
-                                      textColor: Colors.black,
-                                    ),
-                                  ),
-                                  TemperatureButton(
-                                    temperatureCounter: counter,
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
+                        AirCard(isOn: true, tempCount: 22, AirName: 'Ar 1'),
                         SizedBox(
                           height: 30,
-                        )
+                        ),
+                        AirCard(isOn: false, tempCount: 20, AirName: 'Ar 2'),
                       ],
                     ),
                   ),

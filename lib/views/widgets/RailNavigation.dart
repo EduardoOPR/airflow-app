@@ -32,8 +32,8 @@ class _RailNavigationState extends State<RailNavigation> {
           _selectedIndex = index;
         });
         if (index == 3) {
-          GoogleSignIn().signOut();
-          FirebaseAuth.instance.signOut();
+          //GoogleSignIn().signOut();
+          //FirebaseAuth.instance.signOut();
         }
       },
       destinations: [

@@ -7,7 +7,7 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Auth auth = Auth();
+    //Auth auth = Auth();
 
     return Container(
       decoration: const BoxDecoration(
@@ -52,7 +52,7 @@ class LoginScreen extends StatelessWidget {
                   btnColor: Color(0xFF4285F4),
                   text: 'Login com a Google',
                   ktextColor: Colors.white,
-                  onTapLogin: auth.signInWithGoogle(),
+                  //onTapLogin: auth.signInWithGoogle(),
                 ),
                 Text(
                   'Ou crie sua conta com a conta da Google.',
@@ -63,8 +63,7 @@ class LoginScreen extends StatelessWidget {
                   btnColor: Colors.white,
                   text: 'Sign in com a Google',
                   ktextColor: Colors.black,
-                  onTapLogin: auth
-                      .signInWithGoogle(), //TODO Modificar aqui para o registro??
+                  //onTapLogin: auth.signInWithGoogle(), //TODO Modificar aqui para o registro??
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.15,
@@ -79,22 +78,23 @@ class LoginScreen extends StatelessWidget {
 }
 
 class LoginButton extends StatelessWidget {
-  const LoginButton(
-      {super.key,
-      required this.btnColor,
-      required this.text,
-      required this.ktextColor,
-      required this.onTapLogin});
+  const LoginButton({
+    super.key,
+    required this.btnColor,
+    required this.text,
+    required this.ktextColor,
+    //required this.onTapLogin
+  });
 
   final Color btnColor;
   final String text;
   final Color ktextColor;
-  final Future<void> onTapLogin;
+  // final Future<void> onTapLogin;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => onTapLogin,
+    return InkWell(
+      //onTap: () => onTapLogin,
       child: Container(
         height: MediaQuery.of(context).size.height * 0.06,
         width: MediaQuery.of(context).size.width * 0.755,

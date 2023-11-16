@@ -6,14 +6,14 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class SplatshScreen extends StatefulWidget {
-  const SplatshScreen({super.key});
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
 
   @override
-  State<SplatshScreen> createState() => _SplatshScreenState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplatshScreenState extends State<SplatshScreen> {
+class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
