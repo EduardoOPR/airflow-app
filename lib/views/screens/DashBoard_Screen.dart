@@ -1,9 +1,11 @@
 //http://167.172.130.199/dashboard/wind
+//https://pub.dev/packages/syncfusion_flutter_charts
 
 import 'dart:ffi';
 
 import 'package:airflow/themes/my_themes.dart';
 import 'package:airflow/views/widgets/AirCard.dart';
+import 'package:airflow/views/widgets/CustomAppbar.dart';
 import 'package:flutter/material.dart';
 import 'package:airflow/views/widgets/RailNavigation.dart';
 import 'package:airflow/views/widgets/TemperatureButton.dart';
@@ -25,45 +27,11 @@ class _DashBoard_ScreenState extends State<DashBoard_Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF1F1F4),
+      backgroundColor: const Color(0xFFF1F1F4),
+      appBar: const CustomAppbar(),
+      //drawer: PanelDrawer(),
       body: Column(
         children: [
-          SafeArea(
-            child: Container(
-              padding: EdgeInsets.only(left: 16, right: 16),
-              color: Colors.white,
-              width: double.infinity,
-              height: 56,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Image.asset(
-                    'assets/images/arIcon.png',
-                    height: 26,
-                  ),
-                  Wrap(
-                    crossAxisAlignment: WrapCrossAlignment.center,
-                    spacing: 10,
-                    children: [
-                      const Icon(
-                        Icons.help_outline,
-                        color: Color(0xFF8B8BA7),
-                      ),
-                      const Icon(Icons.account_circle_outlined),
-                      SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.256,
-                          child: Text(
-                            'Gabriela Miranda',
-                            style: MyThemes.inter400(
-                                fontSize: 14, textColor: Colors.black),
-                            overflow: TextOverflow.ellipsis,
-                          ))
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
           Expanded(
             child: Row(
               children: [

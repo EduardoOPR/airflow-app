@@ -26,7 +26,6 @@ class _RailNavigationState extends State<RailNavigation> {
 
   @override
   void initState() {
-    // TODO: implement initState
     _selectedIndex = widget.selectedIndex;
     super.initState();
   }
@@ -83,7 +82,7 @@ class _RailNavigationState extends State<RailNavigation> {
               width: 32,
               height: 32,
               decoration: BoxDecoration(
-                  color: Color(0xFFFAF8F8),
+                  color: const Color(0xFFFAF8F8),
                   borderRadius: BorderRadius.circular(10)),
               child: const Icon(
                 Icons.grid_view,
@@ -93,21 +92,21 @@ class _RailNavigationState extends State<RailNavigation> {
               width: 32,
               height: 32,
               decoration: BoxDecoration(
-                  color: Color(0xFFDAF7F1),
+                  color: const Color(0xFFDAF7F1),
                   borderRadius: BorderRadius.circular(10)),
               child: const Icon(
                 Icons.grid_view,
                 size: 20,
                 color: Colors.black,
               )),
-          label: Text(""),
+          label: const Text(""),
         ),
         NavigationRailDestination(
           icon: Container(
               width: 32,
               height: 32,
               decoration: BoxDecoration(
-                  color: Color(0xFFFAF8F8),
+                  color: const Color(0xFFFAF8F8),
                   borderRadius: BorderRadius.circular(10)),
               child: const Icon(
                 Icons.signal_cellular_alt_rounded,
@@ -117,21 +116,21 @@ class _RailNavigationState extends State<RailNavigation> {
               width: 32,
               height: 32,
               decoration: BoxDecoration(
-                  color: Color(0xFFDAF7F1),
+                  color: const Color(0xFFDAF7F1),
                   borderRadius: BorderRadius.circular(10)),
               child: const Icon(
                 Icons.signal_cellular_alt_rounded,
                 size: 20,
                 color: Colors.black,
               )),
-          label: Text(""),
+          label: const Text(""),
         ),
         NavigationRailDestination(
           icon: Container(
               width: 32,
               height: 32,
               decoration: BoxDecoration(
-                  color: Color(0xFFFAF8F8),
+                  color: const Color(0xFFFAF8F8),
                   borderRadius: BorderRadius.circular(10)),
               child: const Icon(
                 Icons.air,
@@ -141,14 +140,14 @@ class _RailNavigationState extends State<RailNavigation> {
               width: 32,
               height: 32,
               decoration: BoxDecoration(
-                  color: Color(0xFFDAF7F1),
+                  color: const Color(0xFFDAF7F1),
                   borderRadius: BorderRadius.circular(10)),
               child: const Icon(
                 Icons.air,
                 size: 20,
                 color: Colors.black,
               )),
-          label: Text(""),
+          label: const Text(""),
         ),
         NavigationRailDestination(
             padding:
@@ -159,7 +158,7 @@ class _RailNavigationState extends State<RailNavigation> {
             ),
             indicatorColor: Colors.transparent,
             disabled: true,
-            label: Text("")),
+            label: const Text("")),
         NavigationRailDestination(
           icon: Container(
               width: 32,
@@ -175,14 +174,14 @@ class _RailNavigationState extends State<RailNavigation> {
               width: 32,
               height: 32,
               decoration: BoxDecoration(
-                  color: Color(0xFFDAF7F1),
+                  color: const Color(0xFFDAF7F1),
                   borderRadius: BorderRadius.circular(10)),
               child: const Icon(
                 Icons.logout,
                 size: 20,
                 color: Colors.black,
               )),
-          label: Text(""),
+          label: const Text(""),
         ),
       ],
     );
