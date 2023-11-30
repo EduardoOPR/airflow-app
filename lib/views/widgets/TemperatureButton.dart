@@ -2,9 +2,15 @@ import 'package:airflow/themes/my_themes.dart';
 import 'package:flutter/material.dart';
 
 class TemperatureButton extends StatefulWidget {
-  const TemperatureButton({super.key, required this.temperatureCounter});
+  const TemperatureButton(
+      {super.key,
+      required this.temperatureCounter,
+      required this.maxTemp,
+      required this.minTemp});
 
   final int temperatureCounter;
+  final int minTemp;
+  final int maxTemp;
 
   @override
   State<TemperatureButton> createState() => _TemperatureButtonState();
@@ -26,7 +32,7 @@ class _TemperatureButtonState extends State<TemperatureButton> {
       children: [
         GestureDetector(
           onTap: () => setState(() {
-            _temperatureCounter = _temperatureCounter < 19
+            _temperatureCounter = _temperatureCounter <= widget.minTemp
                 ? _temperatureCounter
                 : _temperatureCounter - 1;
           }),
@@ -78,7 +84,7 @@ class _TemperatureButtonState extends State<TemperatureButton> {
         ),
         GestureDetector(
           onTap: () => setState(() {
-            _temperatureCounter = _temperatureCounter > 29
+            _temperatureCounter = _temperatureCounter >= widget.maxTemp
                 ? _temperatureCounter
                 : _temperatureCounter + 1;
           }),

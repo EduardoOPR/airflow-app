@@ -3,15 +3,20 @@ import 'package:airflow/views/widgets/TemperatureButton.dart';
 import 'package:flutter/material.dart';
 
 class AirCard extends StatefulWidget {
-  const AirCard(
-      {super.key,
-      required this.AirName,
-      required this.isOn,
-      required this.tempCount});
+  const AirCard({
+    super.key,
+    required this.AirName,
+    required this.isOn,
+    required this.tempCount,
+    required this.minTemp,
+    required this.maxTemp,
+  });
 
   final String AirName;
   final bool isOn;
   final int tempCount;
+  final int minTemp;
+  final int maxTemp;
 
   @override
   State<AirCard> createState() => _AirCardState();
@@ -94,6 +99,8 @@ class _AirCardState extends State<AirCard> {
                 ),
               ),
               TemperatureButton(
+                minTemp: widget.minTemp,
+                maxTemp: widget.maxTemp,
                 temperatureCounter: counter,
               ),
             ],

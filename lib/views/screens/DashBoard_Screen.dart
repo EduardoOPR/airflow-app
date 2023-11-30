@@ -2,6 +2,9 @@
 //https://pub.dev/packages/syncfusion_flutter_charts
 
 import 'dart:ffi';
+import 'package:airflow/models/AirModel.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 import 'package:airflow/themes/my_themes.dart';
 import 'package:airflow/views/widgets/AirCard.dart';
@@ -23,6 +26,23 @@ class _DashBoard_ScreenState extends State<DashBoard_Screen> {
   final performanceKey = GlobalKey();
   final ventilationKey = GlobalKey();
   final scrollController = ScrollController();
+
+  List<AirModel> airList = [];
+
+  Future getRequest() async {
+    var url = Uri.parse("http://167.172.130.199/dashboard/wind");
+    var response = await http.get(url);
+    jsonDecode(response.body).map((air) => airList.add(AirModel.parse(air)));
+    print(jsonDecode(response.body));
+    print(airList);
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    getRequest();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -146,11 +166,23 @@ class _DashBoard_ScreenState extends State<DashBoard_Screen> {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.07,
                         ),
-                        AirCard(isOn: true, tempCount: 22, AirName: 'Ar 1'),
+                        AirCard(
+                          isOn: true,
+                          tempCount: 22,
+                          AirName: 'Ar 1',
+                          minTemp: 18,
+                          maxTemp: 30,
+                        ),
                         SizedBox(
                           height: 30,
                         ),
-                        AirCard(isOn: false, tempCount: 20, AirName: 'Ar 2'),
+                        AirCard(
+                          isOn: false,
+                          tempCount: 20,
+                          AirName: 'Ar 2',
+                          minTemp: 16,
+                          maxTemp: 28,
+                        ),
                         SizedBox(
                           height: 30,
                         ),
