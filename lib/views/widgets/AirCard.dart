@@ -37,6 +37,7 @@ class _AirCardState extends State<AirCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.only(bottom: 30),
       padding: const EdgeInsets.symmetric(horizontal: 25),
       height: MediaQuery.of(context).size.height * 0.4206,
       width: MediaQuery.of(context).size.width * 0.6795,
@@ -58,8 +59,8 @@ class _AirCardState extends State<AirCard> {
                 width: MediaQuery.of(context).size.width * 0.41,
                 child: Text(
                   widget.AirName,
-                  style:
-                      MyThemes.inter700(fontSize: 20, textColor: Colors.black),
+                  style: MyThemes.inter700(
+                      fontSize: 14, textColor: Colors.black), //20
                   overflow: TextOverflow.ellipsis,
                 ),
               ),

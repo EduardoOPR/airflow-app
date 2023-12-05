@@ -15,8 +15,8 @@ class AirModel {
     required this.isActive,
   });
 
-  static AirModel parse(Map<String, dynamic> air) => AirModel(
-        id: air['id'],
+  static AirModel parse(dynamic air) => AirModel(
+        id: air['_id'],
         name: air['name'],
         minTemp: air['minTemp'],
         maxTemp: air['maxTemp'],
