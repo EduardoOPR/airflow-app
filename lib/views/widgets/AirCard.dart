@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 class AirCard extends StatefulWidget {
   const AirCard({
     super.key,
-    required this.AirName,
+    required this.airName,
     required this.isOn,
     required this.tempCount,
     required this.minTemp,
     required this.maxTemp,
   });
 
-  final String AirName;
+  final String airName;
   final bool isOn;
   final int tempCount;
   final int minTemp;
@@ -23,15 +23,26 @@ class AirCard extends StatefulWidget {
 }
 
 class _AirCardState extends State<AirCard> {
+  final nameControler = TextEditingController();
   bool isSwitched = true;
   int counter = 20;
+  bool _isEnabled = false;
+  FocusNode myFocusNode = FocusNode();
 
   @override
   void initState() {
     // TODO: implement initState
     isSwitched = widget.isOn;
     counter = widget.tempCount;
+    nameControler.text = widget.airName;
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    // Clean up the focus node when the Form is disposed.
+    myFocusNode.dispose();
+    super.dispose();
   }
 
   @override
@@ -57,15 +68,36 @@ class _AirCardState extends State<AirCard> {
             children: [
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.41,
-                child: Text(
-                  widget.AirName,
-                  style: MyThemes.inter700(
-                      fontSize: 14, textColor: Colors.black), //20
-                  overflow: TextOverflow.ellipsis,
+                child: TextFormField(
+                  focusNode: myFocusNode,
+                  controller: nameControler,
+                  style:
+                      MyThemes.inter700(fontSize: 14, textColor: Colors.black),
+                  enabled: _isEnabled,
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hintText: widget.airName,
+                    hintStyle: MyThemes.inter700(
+                        fontSize: 14, textColor: Colors.black),
+                  ),
+                  onFieldSubmitted: (string) {
+                    setState(() {
+                      _isEnabled = false;
+                    });
+                  },
                 ),
               ),
               IconButton(
-                  onPressed: () {}, icon: Icon(Icons.border_color_outlined))
+                  onPressed: () {
+                    setState(() {
+                      _isEnabled = !_isEnabled;
+                      FocusScope.of(context).requestFocus(myFocusNode);
+                    });
+                    if (_isEnabled) {
+                      myFocusNode.requestFocus();
+                    }
+                  },
+                  icon: const Icon(Icons.border_color_outlined))
             ],
           ),
           Row(
@@ -76,7 +108,7 @@ class _AirCardState extends State<AirCard> {
                 style: MyThemes.inter500(fontSize: 16, textColor: Colors.black),
               ),
               Switch(
-                activeColor: Color(0xFF09CCA3),
+                activeColor: const Color(0xFF09CCA3),
                 value: isSwitched,
                 onChanged: (value) {
                   setState(() {
@@ -86,7 +118,7 @@ class _AirCardState extends State<AirCard> {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Row(
