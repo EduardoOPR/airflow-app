@@ -156,7 +156,7 @@ class _DashBoard_ScreenState extends State<DashBoard_Screen> {
                                 return Column(
                                   children: snapshot.data
                                       .map<Widget>((air) => AirCard(
-                                          AirName: air.name,
+                                          airName: air.name,
                                           isOn: air.isActive,
                                           tempCount: air.temp,
                                           minTemp: air.minTemp,
