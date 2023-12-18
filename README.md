@@ -24,7 +24,7 @@ Temas de fontes que são utilizados ao decorrer do aplicativo
 ### views
 ![Screenshot_2](https://github.com/EduardoOPR/airflow-app/assets/67355426/6f11bb74-0186-41d0-a47a-b6fc4284b38f)
 #### screens
-Aqui estão as telas principais como: 
+Aqui ficam as telas do aplicativo, sendo elas:
 - dashboard (falta implementar apenas o gráfico dinâmico, o pacote que encontrei que já consegue realizar isso é esse: https://pub.dev/packages/syncfusion_flutter_charts)
 - login
 - splash (na splash será feito a checagem se o usuário já estava logado ou não, e dela que será feito o redirecionamento para a tela de login ou dashboard, as funções de checagem já estão implementadas nela)
