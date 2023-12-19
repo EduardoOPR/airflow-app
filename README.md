@@ -30,6 +30,8 @@ Temas de fontes que são utilizados ao decorrer do aplicativo, para todos é pos
 
 
 ### views
+Aqui se encontram as telas e os componentes que as compõem.
+
 ![Screenshot_2](https://github.com/EduardoOPR/airflow-app/assets/67355426/6f11bb74-0186-41d0-a47a-b6fc4284b38f)
 #### screens
 Aqui ficam as telas do aplicativo, sendo elas:
